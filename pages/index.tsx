@@ -1,7 +1,7 @@
 import { WalletConnect } from "../components/WalletConnect";
 import { BuyPanel } from "../components/BuyPanel";
 import { ProgressBar } from "../components/ProgressBar";
-import { AdminPanel } from "../components/AdminPanel";
+import AdminPanel from "../components/AdminPanel";
 
 export default function Home() {
   return (
