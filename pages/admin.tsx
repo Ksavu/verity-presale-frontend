@@ -1,4 +1,4 @@
-import { AdminPanel } from "../components/AdminPanel";
+import AdminPanel from "../components/AdminPanel";
 
 export default function Admin() {
   return (
@@ -7,3 +7,4 @@ export default function Admin() {
     </div>
   );
 }
+
