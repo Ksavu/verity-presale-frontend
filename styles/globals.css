@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #0b1a2f;
+    color: #fff;
+  }
+  
+  button {
+    background: linear-gradient(270deg, #4facfe, #00f2fe);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .card {
+    background: #111d33;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  
+  input {
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+  }
+  
