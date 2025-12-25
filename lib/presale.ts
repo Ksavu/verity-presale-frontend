@@ -1,5 +1,3 @@
-import { CONFIG } from "./config";
-
 // Simulacija kupaca i ukupnog USD
 let buyers = [
   { address: "buyer1", amountUSD: 5000 },
