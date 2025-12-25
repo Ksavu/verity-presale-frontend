@@ -1,17 +1,33 @@
-// Simulacija kupaca i ukupnog USD
-let buyers = [
-  { address: "buyer1", amountUSD: 5000 },
-  { address: "buyer2", amountUSD: 2000 },
-  { address: "buyer3", amountUSD: 10000 },
-];
+import { CONFIG } from "./config";
 
-export const getTotalUSD = () => {
-  return buyers.reduce((acc, b) => acc + b.amountUSD, 0);
+export type Buyer = {
+  address: string;
+  amountUSD: number;
 };
 
-export const getBuyers = () => buyers;
+const STORAGE_KEY = "verity_buyers";
 
-// Funkcija za test dodavanja kupca (simulacija)
+const getStoredBuyers = (): Buyer[] => {
+  if (typeof window === "undefined") return [];
+  const raw = localStorage.getItem(STORAGE_KEY);
+  return raw ? JSON.parse(raw) : [];
+};
+
+const saveBuyers = (buyers: Buyer[]) => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(buyers));
+  window.dispatchEvent(new Event("presale_update"));
+};
+
+export const getBuyers = (): Buyer[] => {
+  return getStoredBuyers();
+};
+
+export const getTotalUSD = (): number => {
+  return getStoredBuyers().reduce((sum, b) => sum + b.amountUSD, 0);
+};
+
 export const addBuyer = (address: string, amountUSD: number) => {
+  const buyers = getStoredBuyers();
   buyers.push({ address, amountUSD });
+  saveBuyers(buyers);
 };
